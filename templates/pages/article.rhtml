@@ -6,7 +6,9 @@
   <section class="content">
     <%= body %>
   </section>
-
+  <br/>
+  <h4 class="author"><i><%= author %></i></h4>
+  <span class="date"><i><%= date %></i></span>
   <section class="comments">
     <% if @config[:disqus] %>
       <div id="disqus_thread"></div>
@@ -15,8 +17,5 @@
       <a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
     <% end %>
   </section>
-  <br/>
-  <h4 class="author"><i><%= author %></i></h4>
-  <span class="date"><i><%= date %></i></span>
 </article>
 
