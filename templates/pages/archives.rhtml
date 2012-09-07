@@ -1,11 +1,18 @@
-<h1><%= @path %></h1>
-<ul>
-  <% if archives.length > 0 %>
-    <% for entry in archives %>
-      <li>
-        <a href="<%= entry.path %>"><%= entry.title %></a>
-      </li>
-    <% end %>
+<h2><%= (@path || "").capitalize %></h2>
+
+<% if archives.length > 0 %>
+  <% jeremy = archives.select{|x| x.author.downcase.include? 'jeremy' } %>
+  <% emanuel = archives.select{|x| x.author.downcase.include? 'emanuel' } %>
+
+  <% for articles in [emanuel, jeremy] %>
+    <h4><%= articles.size > 0 ? articles.first.author : "" %></h4>
+    <ul>
+        <% for entry in articles %>
+          <li>
+            <a href="<%= entry.path %>"><%= entry.title %> - <%= entry.date %></a>
+          </li>
+        <% end %>
+    </ul>
   <% end %>
-</ul>
+<% end %>
 
